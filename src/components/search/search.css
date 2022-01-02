@@ -1,0 +1,35 @@
+.search__form {
+  width: 100%;
+}
+
+.search__in {
+  float: left;
+  width: 80%;
+  flex: auto;
+}
+
+.search__bt {
+  float: left;
+  width: 20%;
+  flex: auto;
+}
+
+.search__input {
+  text-align: center;
+  height: 40px;
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: none;
+  background-color: #efeff0;
+}
+
+.search__button {
+  height: 40px;
+  width: 50px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: 1px;
+  align-items: flex-end;
+  background-color: red;
+}
