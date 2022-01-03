@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 
 import Delete from '../../assets/icons/btn-delete.png';
 import './comicModel.css';
 
-export const ComicModel = ({ image, description }) => {
+export const ComicModel = ({ image, description, id }) => {
 
     return (
         <div className="comic__content">
@@ -23,9 +24,10 @@ export const ComicModel = ({ image, description }) => {
                                 <Card.Text>
                                     {description}
                                 </Card.Text>
-                                {/* <button className="btn comic__button"
-                                onClick={addToFavourites}
-                                >VIEW MORE</button> */}
+                                <Link to={`/comic-list/${id}`}>
+                                    <button className="btn comic__button"
+                                    >VIEW MORE</button>
+                                </Link>
                             </Card.Body>
                         </Col>
                     </Row>

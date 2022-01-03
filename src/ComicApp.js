@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from 'react-bootstrap';
 
-import { Header } from './components/ui/Header';
 import { ComicScreen } from './components/screen/ComicScreen';
 import { MyFavourites } from './components/favourites/MyFavourites';
 import './comic.css';
@@ -10,7 +9,6 @@ export const ComicApp = () => {
 
     return (
         <>
-            <Header />
             <div className="container-fluid">
                 <Container fluid={true}>
                     <Row>
