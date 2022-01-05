@@ -1,22 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from 'react-bootstrap';
 
-import { ComicScreen } from './components/screen/ComicScreen';
-import { MyFavourites } from './components/favourites/MyFavourites';
-import './comic.css';
+import { CharactersScreen } from './CharactersScreen';
+import { FavouritesScreen } from './FavouritesScreen';
 
-export const ComicApp = () => {
+export const HomeScreen = () => {
 
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid home__background">
                 <Container fluid={true}>
                     <Row>
                         <Col sm={9}>
-                            <ComicScreen />
+                            <CharactersScreen />
                         </Col>
                         <Col sm={3}>
-                            <MyFavourites />
+                            <FavouritesScreen />
                         </Col>
                     </Row>
                 </Container>

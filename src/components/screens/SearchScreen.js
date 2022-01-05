@@ -1,21 +1,25 @@
 import { Col, Row } from 'react-bootstrap';
 
-import { useCharacters } from '../../helpers/useCharacters';
-import { CharacterModel } from '../characterModel/CharacterModel';
-import { ComicPagination } from '../pagination/ComicPagination';
-import Char from '../../assets/icons/characters.png';
-import './screen.css';
+import { CharacterModel } from '../models/CharacterModel';
+import { useCharacterByName } from '../../helpers/useCharacterByName';
+import CharIcon from '../../assets/icons/characters.png';
+import './screens.css';
 
-export const ComicScreen = () => {
+export const SearchScreen = () => {
 
-    const data = useCharacters();
+    // const { search } = window.location;
+    // const query = new URLSearchParams(search).get('searchText');
+
+    // console.log(query);
+
+    const data = useCharacterByName('abyss');
 
     return (
-        <div className="container">
+        <div className="container animate__animated animate__fadeInLeft">
             <h3 className='mt-3'>
                 <img
                     className="screen__title"
-                    src={Char} alt="char" />
+                    src={CharIcon} alt="char" />
                 {' '}
                 Characters</h3>
             <div>
@@ -34,7 +38,6 @@ export const ComicScreen = () => {
                 </Row>
             </div>
             <div className="screen__nextPage">
-                <ComicPagination />
             </div>
         </div >
     )

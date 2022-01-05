@@ -7,3 +7,7 @@
   display: flex;
   margin-left: 280px;
 }
+
+.home__background {
+  background: linear-gradient(90deg, #efeff09f 75%, #cacaca6e 50%);
+}

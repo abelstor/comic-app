@@ -1,6 +1,6 @@
 import { Pagination } from 'react-bootstrap';
 
-export const ComicPagination = () => {
+export const PaginationScreen = () => {
 
     return (
         <div>

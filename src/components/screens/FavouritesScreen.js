@@ -1,24 +1,24 @@
 import { Col, Row } from 'react-bootstrap';
 
+import { ComicListModel } from '../models/ComicListModel';
 import { useComicsById } from '../../helpers/useComicsById';
-import { ComicModel } from '../comicModel/ComicModel';
-import Fav from '../../assets/icons/favourites.png';
+import FavIcon from '../../assets/icons/favourites.png';
 
-export const MyFavourites = () => {
+export const FavouritesScreen = () => {
 
-    const data = useComicsById(1009149);
+    const data = useComicsById(1009144);
 
     return (
         <>
             <h3 className="mt-3 text-center">
-                <img src={Fav} alt="char" />
+                <img src={FavIcon} alt="char" />
                 {'  '}
                 My Favourites
             </h3>
             <Row xs={1} md={1}>
                 {data.map((per) => [
                     <Col key={per.id}>
-                        <ComicModel
+                        <ComicListModel
                             id={per.id}
                             description={per.title}
                             image={`${per.thumbnail.path}.${per.thumbnail.extension}`}

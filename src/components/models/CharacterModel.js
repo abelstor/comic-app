@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Image } from 'react-bootstrap';
 
-import './characterModel.css';
+import './models.css';
 
 export const CharacterModel = ({ image, description, name, id, items }) => {
 
@@ -9,7 +9,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
     const newItems = items.splice(0, 4);
 
     return (
-        <div className="character__content">
+        <div className="character__content animate__animated animate__fadeIn">
             <Card style={{ width: "28rem" }} className="character__card">
                 <Row xs={1} md={2} className="g-0">
                     <Col>
@@ -26,7 +26,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                             <Card.Text className="character__text">
                                 {`${brief}...`}
                             </Card.Text>
-                            <Link to={`/comic-list/${id}`}>
+                            <Link to={`/list-comic/${id}`}>
                                 <button className="btn character__button"
                                 >VIEW MORE</button>
                             </Link>
@@ -36,7 +36,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                 <Card.Title className="character__title">Related comics</Card.Title>
                 <Col className="character__text__item">
                     <Card.Text >
-                        {newItems.map(ite => [
+                        {newItems.map((ite) => [
                             <li key={ite}>
                                 {ite}
                             </li>
