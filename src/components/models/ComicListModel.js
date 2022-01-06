@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 
 import DeleteIcon from '../../assets/icons/btn-delete.png';
 import './models.css';
 
-export const ComicListModel = ({ image, description, id }) => {
+export const ComicListModel = ({ image, name, id }) => {
 
     return (
         <div className="comic__content animate__animated animate__fadeInRight">
@@ -22,12 +21,8 @@ export const ComicListModel = ({ image, description, id }) => {
                                 className="mt-4" />
                             <Card.Body>
                                 <Card.Text>
-                                    {description}
+                                    {name}
                                 </Card.Text>
-                                <Link to={`list-comic/${id}`}>
-                                    <button className="btn comic__button"
-                                    >VIEW MORE</button>
-                                </Link>
                             </Card.Body>
                         </Col>
                     </Row>

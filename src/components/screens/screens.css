@@ -11,3 +11,8 @@
 .home__background {
   background: linear-gradient(90deg, #efeff09f 75%, #cacaca6e 50%);
 }
+
+.text__link {
+  text-decoration: none;
+  color: black;
+}

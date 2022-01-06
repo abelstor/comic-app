@@ -5,8 +5,8 @@ import './models.css';
 
 export const CharacterModel = ({ image, description, name, id, items }) => {
 
-    const brief = description.slice(0, 120);
-    const newItems = items.splice(0, 4);
+    const info = (!description ? 'Description not provided' : description).slice(0, 120);
+    const related = ((items.length === 0) ? ['Related comics not provided'] : items).splice(0, 4);
 
     return (
         <div className="character__content animate__animated animate__fadeIn">
@@ -24,9 +24,9 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                         <Card.Body>
                             <Card.Title>{name}</Card.Title>
                             <Card.Text className="character__text">
-                                {`${brief}...`}
+                                {`${info}...`}
                             </Card.Text>
-                            <Link to={`/list-comic/${id}`}>
+                            <Link to={`/comics/${id}`}>
                                 <button className="btn character__button"
                                 >VIEW MORE</button>
                             </Link>
@@ -36,7 +36,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                 <Card.Title className="character__title">Related comics</Card.Title>
                 <Col className="character__text__item">
                     <Card.Text >
-                        {newItems.map((ite) => [
+                        {related.map((ite) => [
                             <li key={ite}>
                                 {ite}
                             </li>

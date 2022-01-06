@@ -4,24 +4,25 @@ import { CharacterModel } from '../models/CharacterModel';
 import { useCharacterByName } from '../../helpers/useCharacterByName';
 import CharIcon from '../../assets/icons/characters.png';
 import './screens.css';
+import { Link } from 'react-router-dom';
 
 export const SearchScreen = () => {
 
     // const { search } = window.location;
     // const query = new URLSearchParams(search).get('searchText');
-
     // console.log(query);
 
-    const data = useCharacterByName('abyss');
+    const data = useCharacterByName('agent zero');
 
     return (
         <div className="container animate__animated animate__fadeInLeft">
-            <h3 className='mt-3'>
-                <img
-                    className="screen__title"
-                    src={CharIcon} alt="char" />
-                {' '}
-                Characters</h3>
+            <Link to={'/'} className="text__link">
+                <h3 className="mt-3 text-center">
+                    <img src={CharIcon} alt="char" />
+                    {' '}
+                    Characters
+                </h3>
+            </Link>
             <div>
                 <Row xs={1} md={2} className="g-0">
                     {data.map((per) => [

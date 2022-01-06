@@ -9,6 +9,7 @@
 
 .character__card {
   border-color: transparent;
+  border-top-left-radius: 25%;
 }
 
 .character__button {
@@ -20,7 +21,7 @@
 
 .character__image {
   margin-top: -10px;
-  width: 90%;
+  width: 100%;
   margin-left: -10px;
 }
 
@@ -38,7 +39,9 @@
 
 .character__text__item {
   font-size: small;
-  padding: 20px;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-bottom: 10px;
   color: gray;
 }
 
@@ -68,4 +71,23 @@
   margin-left: 200px;
   border-color: transparent;
   background-color: transparent;
+}
+
+.favourite__delete_button {
+  position: absolute;
+  margin-top: -35px;
+  margin-left: 170px;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.text__content {
+  width: 30px;
+  margin-left: 100px;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.zoomImg {
+  /* transform: translateX(10px) rotate(10deg) translateY(5px); */
 }

@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 
 import { CharactersScreen } from './CharactersScreen';
-import { FavouritesScreen } from './FavouritesScreen';
+import { ListFavouritesScreen } from './ListFavouritesScreen';
 
 export const HomeScreen = () => {
 
@@ -14,7 +14,7 @@ export const HomeScreen = () => {
                             <CharactersScreen />
                         </Col>
                         <Col sm={3}>
-                            <FavouritesScreen />
+                            <ListFavouritesScreen />
                         </Col>
                     </Row>
                 </Container>
