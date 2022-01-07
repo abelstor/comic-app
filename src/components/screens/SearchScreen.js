@@ -38,8 +38,6 @@ export const SearchScreen = () => {
                     ])}
                 </Row>
             </div>
-            <div className="screen__nextPage">
-            </div>
         </div >
     )
 }

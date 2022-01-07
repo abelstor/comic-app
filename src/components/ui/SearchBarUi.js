@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../../providers/useForm';
 import SearchIcon from '../../assets/icons/search.png';
 import './ui.css';
 

@@ -8,7 +8,7 @@ export const FavouritesModel = ({ image, description, name, id, url }) => {
 
     const info = (!description ? 'Description not provided' : description).slice(0, 200);
     const urlComic = ((url === undefined) ? 'Url not provided' : url).splice(0, 1);
-    const [[linkComic]] = urlComic;
+    const [[linkComic]] = urlComic; //TODO => Por corregir!
     const urlLink = linkComic.props.children;
 
     return (
@@ -31,7 +31,7 @@ export const FavouritesModel = ({ image, description, name, id, url }) => {
                             <Card.Title>
                                 {name}</Card.Title>
                             <Card.Text className="character__text">
-                                {`${info}...`}
+                                {info}
                             </Card.Text>
                             {/* <button className="btn character__button"
                             >Add to Favourites</button> */}

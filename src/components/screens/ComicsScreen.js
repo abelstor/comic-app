@@ -1,8 +1,8 @@
+// import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 
 import { ComicModel } from '../models/ComicModel';
-import { PaginationScreen } from './PaginationScreen';
 import { useComicsById } from '../../helpers/useComicsById';
 import CharIcon from '../../assets/icons/characters.png';
 
@@ -10,7 +10,12 @@ export const ComicsScreen = () => {
 
     const { id } = useParams();
     const data = useComicsById(id);
-    console.log('hola desde "ComicsScreen"');
+
+    // useEffect(() => { //TODO. useEffect
+    //     return () => {
+    //         window.removeEventListener();
+    //     }
+    // }, [data])
 
     return (
         <div className="container">
@@ -21,20 +26,23 @@ export const ComicsScreen = () => {
                 {' '}
                 Related comics</h3>
             <div>
-                <Row xs={1} md={2} lg={4} className="g-0">
+                <Row xs={1} md={2} lg={3} className="g-0">
                     {data.map((per) => [
                         <Col key={per.id}>
                             <ComicModel
                                 id={per.id}
                                 name={per.title}
+                                description={per.description}
                                 image={`${per.thumbnail.path}.${per.thumbnail.extension}`}
+                                url={per.urls.map((it) => [
+                                    <span key={it}>
+                                        {it.url}
+                                    </span>
+                                ])}
                             />
                         </Col>
                     ])}
                 </Row>
-            </div>
-            <div className="screen__nextPage">
-                <PaginationScreen />
             </div>
         </div>
     )

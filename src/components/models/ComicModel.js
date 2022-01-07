@@ -1,9 +1,25 @@
-import { Link } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 
+// import { ModalComic } from '../ui/ModalComic';
+import { useStateValue } from '../../providers/StateProvider';
 import './models.css';
 
-export const ComicModel = ({ image, name, id }) => {
+export const ComicModel = ({ id, url, name, image, description }) => {
+
+    const [{ state }, dispatch] = useStateValue();
+
+    const addToFavourites = () => {
+        dispatch({
+            type: 'ADD_TO_FAVOURITES',
+            item: {
+                id: id,
+                url: url,
+                name: name,
+                image: image,
+                description: description
+            }
+        })
+    }
 
     return (
         <div className="comic__content animate__animated animate__fadeInRight">
@@ -20,10 +36,11 @@ export const ComicModel = ({ image, name, id }) => {
                                 <Card.Text>
                                     {name}
                                 </Card.Text>
-                                <Link to={`/favourites/${id}`}>
-                                    <button className="btn comic__button"
-                                    >add to favourites</button>
-                                </Link>
+                                <button
+                                    className="btn comic__button"
+                                    onClick={addToFavourites}
+                                >add to favourites</button>
+                                {/* <ModalComic/> */}
                             </Card.Body>
                         </Col>
                     </Row>
