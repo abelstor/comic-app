@@ -35,7 +35,7 @@ export const ComicsScreen = () => {
                                 description={per.description}
                                 image={`${per.thumbnail.path}.${per.thumbnail.extension}`}
                                 url={per.urls.map((it) => [
-                                    <span key={it}>
+                                    <span key={it.id}>
                                         {it.url}
                                     </span>
                                 ])}

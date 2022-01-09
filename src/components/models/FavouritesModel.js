@@ -2,14 +2,23 @@ import { Card, Row, Col, Image } from 'react-bootstrap';
 
 import DeleteIcon from '../../assets/icons/btn-delete.png';
 import LinkArrow from '../../assets/icons/link-arrow.png';
+import { useStateValue } from '../../providers/StateProvider';
 import './models.css';
 
-export const FavouritesModel = ({ image, description, name, id, url }) => {
+export const FavouritesModel = ({ image, description, name, id }) => {
+
+    const [, dispatch] = useStateValue();
+
+    const removeFovourite = () => {
+        dispatch({
+            type: 'REMOVE_FROM_FAVOURITES',
+            id: id
+        })
+    }
 
     const info = (!description ? 'Description not provided' : description).slice(0, 200);
-    const urlComic = ((url === undefined) ? 'Url not provided' : url).splice(0, 1);
-    const [[linkComic]] = urlComic; //TODO => Por corregir!
-    const urlLink = linkComic.props.children;
+
+    const urlMarvel = 'https://www.marvel.com/marvel-comicstore';
 
     return (
         <div className="character__content animate__animated animate__fadeIn">
@@ -25,7 +34,9 @@ export const FavouritesModel = ({ image, description, name, id, url }) => {
                     </Col>
                     <Col>
                         <Card.Body>
-                            <button className="favourite__delete_button">
+                            <button
+                                onClick={removeFovourite}
+                                className="favourite__delete_button">
                                 <img src={DeleteIcon} alt="delete" />
                             </button>
                             <Card.Title>
@@ -39,7 +50,7 @@ export const FavouritesModel = ({ image, description, name, id, url }) => {
                         <br />
                         <Card.Title className="character__title">Official source</Card.Title>
                         <Card.Text className=" character__text__item animate__animated animate__fadeInLeft">
-                            <a href={urlLink} target="blank">
+                            <a href={urlMarvel} target="blank">
                                 <img className="text__content"
                                     src={LinkArrow} alt="arrow">
                                 </img>

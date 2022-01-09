@@ -6,7 +6,7 @@ import './models.css';
 
 export const ComicModel = ({ id, url, name, image, description }) => {
 
-    const [{ state }, dispatch] = useStateValue();
+    const [, dispatch] = useStateValue();
 
     const addToFavourites = () => {
         dispatch({

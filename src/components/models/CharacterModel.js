@@ -5,8 +5,9 @@ import './models.css';
 
 export const CharacterModel = ({ image, description, name, id, items }) => {
 
+    const upperName = name.toUpperCase();
     const info = (!description ? 'Description not provided' : description).slice(0, 120);
-    const related = ((items.length === 0) ? ['Related comics not provided'] : items).splice(0, 4);
+    // const related = ((items.length === 0) ? ['Related comics not provided'] : items).splice(0, 4);
 
     return (
         <div className="character__content animate__animated animate__fadeIn">
@@ -22,7 +23,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                     </Col>
                     <Col>
                         <Card.Body>
-                            <Card.Title>{name}</Card.Title>
+                            <Card.Title>{upperName}</Card.Title>
                             <Card.Text className="character__text">
                                 {`${info}...`}
                             </Card.Text>
@@ -36,7 +37,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                 <Card.Title className="character__title">Related comics</Card.Title>
                 <Col className="character__text__item">
                     <Card.Text >
-                        {related.map((ite) => [
+                        {items.map((ite) => [
                             <li key={ite}>
                                 {ite}
                             </li>

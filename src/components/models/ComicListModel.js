@@ -1,9 +1,21 @@
+import { Link } from 'react-router-dom';
 import { Card, Row, Col } from 'react-bootstrap';
 
+import { useStateValue } from '../../providers/StateProvider';
 import DeleteIcon from '../../assets/icons/btn-delete.png';
 import './models.css';
 
 export const ComicListModel = ({ image, name, id }) => {
+
+    const [, dispatch] = useStateValue();
+
+    const removeFavourite = () => {
+
+        dispatch({
+            type: 'REMOVE_FROM_FAVOURITES',
+            id: id
+        })
+    }
 
     return (
         <div className="comic__content animate__animated animate__fadeInRight">
@@ -11,14 +23,17 @@ export const ComicListModel = ({ image, name, id }) => {
                 <div className="margen">
                     <Row>
                         <Col>
-                            <button className="comic__delete_button">
+                            <button onClick={removeFavourite}
+                                className="comic__delete_button">
                                 <img src={DeleteIcon} alt="delete" />
                             </button>
-                            <Card.Img
-                                variant="top"
-                                src={image}
-                                alt="comic"
-                                className="mt-4" />
+                            <Link to="/favourites">
+                                <Card.Img
+                                    variant="top"
+                                    src={image}
+                                    alt="comic"
+                                    className="mt-4" />
+                            </Link>
                             <Card.Body>
                                 <Card.Text>
                                     {name}

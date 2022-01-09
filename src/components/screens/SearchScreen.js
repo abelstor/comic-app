@@ -1,18 +1,17 @@
+import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 
 import { CharacterModel } from '../models/CharacterModel';
 import { useCharacterByName } from '../../helpers/useCharacterByName';
 import CharIcon from '../../assets/icons/characters.png';
 import './screens.css';
-import { Link } from 'react-router-dom';
 
 export const SearchScreen = () => {
 
-    // const { search } = window.location;
-    // const query = new URLSearchParams(search).get('searchText');
-    // console.log(query);
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('q');
 
-    const data = useCharacterByName('agent zero');
+    const data = useCharacterByName(myParam);
 
     return (
         <div className="container animate__animated animate__fadeInLeft">

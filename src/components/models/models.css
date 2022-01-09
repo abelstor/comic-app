@@ -68,6 +68,7 @@
 
 .comic__delete_button {
   position: absolute;
+  margin-top: -10px;
   margin-left: 200px;
   border-color: transparent;
   background-color: transparent;

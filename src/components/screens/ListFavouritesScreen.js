@@ -22,9 +22,7 @@ export const ListFavouritesScreen = () => {
                 {basket.map((per) => [
                     <Col key={per.id}>
                         <ComicListModel
-                            id={per.id}
-                            name={per.name}
-                            image={per.image}
+                            {...per}
                         />
                     </Col>
                 ])}

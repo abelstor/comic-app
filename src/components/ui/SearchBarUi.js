@@ -17,10 +17,9 @@ export const SearchBarUi = () => {
     })
     const { searchText } = values;
 
-
     const handleSubmit = (e) => {
-        navigate(`?q=${searchText}`);
         e.preventDefault();
+        navigate(`/search?q=${searchText}`);
     }
 
     return (
