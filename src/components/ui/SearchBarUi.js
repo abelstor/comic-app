@@ -15,14 +15,21 @@ export const SearchBarUi = () => {
     const [values, handleInputChange] = useForm({
         searchText: q,
     })
+
     const { searchText } = values;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate(`/search?q=${searchText}`);
+        if (searchText === '') return;
+        if (location.pathname === '/' || location.pathname === '/result') {
+            navigate(`search?q=${searchText}`);
+        } else {
+            navigate(`result?q=${searchText}`);
+        }
     }
 
     return (
+
         <form
             autoComplete="off"
             onSubmit={handleSubmit}

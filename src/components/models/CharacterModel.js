@@ -7,7 +7,6 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
 
     const upperName = name.toUpperCase();
     const info = (!description ? 'Description not provided' : description).slice(0, 120);
-    // const related = ((items.length === 0) ? ['Related comics not provided'] : items).splice(0, 4);
 
     return (
         <div className="character__content animate__animated animate__fadeIn">

@@ -1,8 +1,8 @@
 import { Col, Row } from 'react-bootstrap';
 
-import CharIcon from '../../assets/icons/characters.png';
 import { FavouritesModel } from '../models/FavouritesModel';
 import { useStateValue } from '../../providers/StateProvider';
+import FavIcon from '../../assets/icons/favourites.png';
 
 export const FavouritesScreen = () => {
 
@@ -10,9 +10,9 @@ export const FavouritesScreen = () => {
 
     return (
         <div className="container">
-            <h3 className="mt-3 text-center">
+            <h3 className="mt-3 text-center mb-4">
                 <img className="screen__title"
-                    src={CharIcon} alt="char" />
+                    src={FavIcon} alt="char" />
                 {' '}
                 My Favourites
             </h3>

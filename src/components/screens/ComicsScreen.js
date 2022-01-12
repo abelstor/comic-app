@@ -1,25 +1,18 @@
-// import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 
 import { ComicModel } from '../models/ComicModel';
-import { useComicsById } from '../../helpers/useComicsById';
+import { useFetchById } from '../../helpers/useFetchById';
 import CharIcon from '../../assets/icons/characters.png';
 
 export const ComicsScreen = () => {
 
     const { id } = useParams();
-    const data = useComicsById(id);
+    const { data, loading } = useFetchById(id);
 
-    // useEffect(() => { //TODO. useEffect
-    //     return () => {
-    //         window.removeEventListener();
-    //     }
-    // }, [data])
-
-    return (
+    return (loading ? <h2 className="text-center mt-5">Cargando...</h2> :
         <div className="container">
-            <h3 className='mt-3'>
+            <h3 className="mt-3 text-center">
                 <img
                     className="screen__title"
                     src={CharIcon} alt="char" />

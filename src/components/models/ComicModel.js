@@ -18,7 +18,7 @@ export const ComicModel = ({ id, url, name, image, description }) => {
                 image: image,
                 description: description
             }
-        })
+        });
     }
 
     return (

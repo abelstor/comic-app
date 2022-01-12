@@ -1,14 +1,6 @@
 export const initialState = {
 
-    basket: [
-        // {
-        //     id: '123',
-        //     url: 'url',
-        //     name: 'ChapulimColorado',
-        //     description: 'description',
-        //     image: 'http://i.annihil.us/u/prod/marvel/i/mg/f/00/5ba3c7cd5f1e2.jpg',
-        // }
-    ],
+    basket: [],
 }
 
 export const getBasketTotal = (basket) => {
@@ -21,20 +13,6 @@ const reducer = (state, action) => {
     switch (action.type) {
 
         case 'ADD_TO_FAVOURITES':
-            // let baskeT = [];
-            // baskeT = state.basket;
-            // const { id } = action.item;
-            // baskeT.forEach(obj => {
-            //     if (obj.id === id) {
-            //         console.log('el id ya existe');
-            //         return;
-            //     } else {
-            //         return {
-            //             ...state,
-            //             basket: [...state.basket, action.item]
-            //         }
-            //     }
-            // })
             return {
                 ...state,
                 basket: [...state.basket, action.item]

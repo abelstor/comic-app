@@ -1,11 +1,11 @@
 import { Card, Row, Col, Image } from 'react-bootstrap';
 
+import { useStateValue } from '../../providers/StateProvider';
 import DeleteIcon from '../../assets/icons/btn-delete.png';
 import LinkArrow from '../../assets/icons/link-arrow.png';
-import { useStateValue } from '../../providers/StateProvider';
 import './models.css';
 
-export const FavouritesModel = ({ image, description, name, id }) => {
+export const FavouritesModel = ({ image, description, name, id, url }) => {
 
     const [, dispatch] = useStateValue();
 
@@ -13,12 +13,13 @@ export const FavouritesModel = ({ image, description, name, id }) => {
         dispatch({
             type: 'REMOVE_FROM_FAVOURITES',
             id: id
-        })
+        });
     }
 
-    const info = (!description ? 'Description not provided' : description).slice(0, 200);
+    const [urlApi] = url.slice(0, 1);
+    const [source] = urlApi.map(el => el.props.children);
 
-    const urlMarvel = 'https://www.marvel.com/marvel-comicstore';
+    const info = (!description ? 'Description not provided' : description).slice(0, 200);
 
     return (
         <div className="character__content animate__animated animate__fadeIn">
@@ -44,13 +45,11 @@ export const FavouritesModel = ({ image, description, name, id }) => {
                             <Card.Text className="character__text">
                                 {info}
                             </Card.Text>
-                            {/* <button className="btn character__button"
-                            >Add to Favourites</button> */}
                         </Card.Body>
                         <br />
                         <Card.Title className="character__title">Official source</Card.Title>
                         <Card.Text className=" character__text__item animate__animated animate__fadeInLeft">
-                            <a href={urlMarvel} target="blank">
+                            <a href={source} target="_blank" rel="noreferrer noopener">
                                 <img className="text__content"
                                     src={LinkArrow} alt="arrow">
                                 </img>

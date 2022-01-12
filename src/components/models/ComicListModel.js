@@ -14,34 +14,32 @@ export const ComicListModel = ({ image, name, id }) => {
         dispatch({
             type: 'REMOVE_FROM_FAVOURITES',
             id: id
-        })
+        });
     }
 
     return (
         <div className="comic__content animate__animated animate__fadeInRight">
             <Card style={{ width: "16rem" }} className="comic__card">
-                <div className="margen">
-                    <Row>
-                        <Col>
-                            <button onClick={removeFavourite}
-                                className="comic__delete_button">
-                                <img src={DeleteIcon} alt="delete" />
-                            </button>
-                            <Link to="/favourites">
-                                <Card.Img
-                                    variant="top"
-                                    src={image}
-                                    alt="comic"
-                                    className="mt-4" />
-                            </Link>
-                            <Card.Body>
-                                <Card.Text>
-                                    {name}
-                                </Card.Text>
-                            </Card.Body>
-                        </Col>
-                    </Row>
-                </div>
+                <Row>
+                    <Col>
+                        <button onClick={removeFavourite}
+                            className="comic__delete_button">
+                            <img src={DeleteIcon} alt="delete" />
+                        </button>
+                        <Link to="/favourites">
+                            <Card.Img
+                                variant="top"
+                                src={image}
+                                alt="comic"
+                                className="mt-4" />
+                        </Link>
+                        <Card.Body>
+                            <Card.Text>
+                                {name}
+                            </Card.Text>
+                        </Card.Body>
+                    </Col>
+                </Row>
             </Card>
         </div>
     )

@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { useState } from 'react';
+import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
 
 const ModalBody = (props) => {
+
     return (
+
         <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
@@ -37,10 +39,11 @@ const ModalBody = (props) => {
                 <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
-    );
+    )
 }
 
 export const ModalComic = () => {
+
     const [modalShow, setModalShow] = useState(false);
 
     return (
@@ -51,7 +54,5 @@ export const ModalComic = () => {
 
             <ModalBody show={modalShow} onHide={() => setModalShow(false)} />
         </>
-    );
+    )
 }
-
-// render(<ModalComic />);
