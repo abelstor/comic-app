@@ -61,3 +61,62 @@
   margin-left: 100px;
   margin: 0 150px;
 }
+
+.modal__close__button {
+  margin-top: 10px;
+  margin-left: 450px;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.add__modal {
+  background-color: red;
+  color: white;
+  border-color: transparent;
+}
+.add__modal:hover {
+  background-color: rgb(75, 75, 75);
+  color: white;
+  border-color: transparent;
+}
+
+.add__button {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(211, 210, 210);
+  color: rgb(65, 64, 64);
+  border-color: transparent;
+  transform: none;
+}
+
+.add__button:hover {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(75, 75, 75);
+  color: red;
+  border-color: transparent;
+}
+
+.shopping__button {
+  width: 50%;
+  height: 100%;
+  color: red;
+  border-color: transparent;
+  background-color: rgb(168, 168, 168);
+}
+.shopping__button:hover {
+  width: 50%;
+  height: 100%;
+  color: red;
+  border-color: transparent;
+  background-color: rgb(168, 168, 168);
+}
+
+.img__shopping {
+  border-radius: 50%;
+  background-color: transparent;
+  text-decoration: none;
+}
+.button__content {
+  height: 55px;
+}

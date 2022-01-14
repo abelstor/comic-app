@@ -10,6 +10,8 @@ export const useCharacters = () => {
             .then(resp => resp.json())
             .then(({ data }) => {
                 setCharacters(data.results)
+            }).catch(err => {
+                console.warn(err);
             })
     }, [])
     return characters;

@@ -10,6 +10,8 @@ export const useComicsById = (id) => {
             .then(resp => resp.json())
             .then(({ data }) => {
                 setComicsById(data.results)
+            }).catch(err => {
+                console.warn(err);
             })
     }, [id])
     return comicsById;

@@ -5,7 +5,7 @@ import DeleteIcon from '../../assets/icons/btn-delete.png';
 import LinkArrow from '../../assets/icons/link-arrow.png';
 import './models.css';
 
-export const FavouritesModel = ({ image, description, name, id, url }) => {
+export const FavouritesModel = ({ id, url, name, image, description }) => {
 
     const [, dispatch] = useStateValue();
 

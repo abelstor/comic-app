@@ -5,7 +5,7 @@ import { useStateValue } from '../../providers/StateProvider';
 import DeleteIcon from '../../assets/icons/btn-delete.png';
 import './models.css';
 
-export const ComicListModel = ({ image, name, id }) => {
+export const ComicListModel = ({ id, name, image }) => {
 
     const [, dispatch] = useStateValue();
 

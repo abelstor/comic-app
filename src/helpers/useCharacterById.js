@@ -10,6 +10,8 @@ export const useCharacterById = (id) => {
             .then(resp => resp.json())
             .then(({ data }) => {
                 setCharacterById(data.results)
+            }).catch(err => {
+                console.warn(err);
             })
     }, [id])
     return characterById;

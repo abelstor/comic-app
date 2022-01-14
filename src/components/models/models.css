@@ -17,6 +17,15 @@
   background: red;
   margin-top: 10px;
   color: white;
+  border-color: transparent;
+}
+
+.character__button:hover {
+  font-size: small;
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(75, 75, 75);
+  border-color: transparent;
 }
 
 .character__image {
