@@ -1,6 +1,7 @@
+
 export const initialState = {
 
-    basket: [],
+    basket: []
 }
 
 export const getBasketTotal = (basket) => {
@@ -13,12 +14,14 @@ const reducer = (state, action) => {
     switch (action.type) {
 
         case 'ADD_TO_FAVOURITES':
+
             return {
                 ...state,
                 basket: [...state.basket, action.item]
             };
 
         case 'REMOVE_FROM_FAVOURITES':
+
             const index = state.basket.findIndex(
                 (basketItem) => basketItem.id === action.id
             );

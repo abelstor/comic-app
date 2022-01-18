@@ -11,10 +11,15 @@ export const useFetchById = (id) => {
     });
 
     useEffect(() => {
-        setState({
-            data: data,
-            loading: false
-        });
+
+        setTimeout(() => {
+
+            setState({
+                data: data,
+                loading: false
+            });
+        }, 500);
+
     }, [data])
 
     return state;

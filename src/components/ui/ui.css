@@ -92,7 +92,7 @@
 .add__button:hover {
   width: 50%;
   height: 100%;
-  background-color: rgb(75, 75, 75);
+  background-color: rgb(47, 33, 33);
   color: red;
   border-color: transparent;
 }

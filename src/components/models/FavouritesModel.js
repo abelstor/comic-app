@@ -10,14 +10,12 @@ export const FavouritesModel = ({ id, url, name, image, description }) => {
     const [, dispatch] = useStateValue();
 
     const removeFovourite = () => {
+
         dispatch({
             type: 'REMOVE_FROM_FAVOURITES',
             id: id
         });
     }
-
-    const [urlApi] = url.slice(0, 1);
-    const [source] = urlApi.map(el => el.props.children);
 
     const info = (!description ? 'Description not provided' : description).slice(0, 200);
 
@@ -43,13 +41,13 @@ export const FavouritesModel = ({ id, url, name, image, description }) => {
                             <Card.Title>
                                 {name}</Card.Title>
                             <Card.Text className="character__text">
-                                {info}
+                                {`${info}...`}
                             </Card.Text>
                         </Card.Body>
                         <br />
                         <Card.Title className="character__title">Official source</Card.Title>
                         <Card.Text className=" character__text__item animate__animated animate__fadeInLeft">
-                            <a href={source} target="_blank" rel="noreferrer noopener">
+                            <a href={url} target="_blank" rel="noreferrer noopener">
                                 <img className="text__content"
                                     src={LinkArrow} alt="arrow">
                                 </img>

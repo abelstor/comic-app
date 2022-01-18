@@ -5,6 +5,12 @@ import './models.css';
 
 export const ComicModel = ({ id, url, name, image, description }) => {
 
+    const info = (!description ? 'Description not provided' : description).slice(0, 200);
+
+    const [urlApi] = url.splice(0, 1);
+    const [source] = urlApi;
+    const urlComic = source.props.children;
+
     return (
         <div className="comic__content animate__animated animate__fadeInRight">
             <Card style={{ width: "16rem" }} className="comic__card">
@@ -17,10 +23,10 @@ export const ComicModel = ({ id, url, name, image, description }) => {
                             className="mt-4" />
                         <ModalComic
                             id={id}
-                            url={url}
+                            url={urlComic}
                             name={name}
                             image={image}
-                            description={description}
+                            description={info}
                         />
                         <Card.Body>
                             <Card.Text>

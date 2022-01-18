@@ -16,7 +16,7 @@ export const SearchScreen = () => {
     if (data.length > 0) {
 
         return (loading ? <h2 className="text-center mt-5">Cargando...</h2> :
-            (<div className="container animate__animated animate__fadeInLeft">
+            <div className="container animate__animated animate__fadeInLeft">
                 <Link to={'/'} className="text__link">
                     <h3 className="mt-3 text-center">
                         <img src={CharIcon} alt="char" />
@@ -39,14 +39,14 @@ export const SearchScreen = () => {
                         ])}
                     </Row>
                 </div>
-            </div >)
+            </div >
         )
     } else {
 
         return (loading ? <h2 className="text-center mt-5">Cargando...</h2> :
-            (<div className="container animate__animated animate__fadeInLeft p-5">
+            <div className="container animate__animated animate__fadeInLeft p-5">
                 <h3>No matches found for... ' {myParam} '.</h3>
-            </div>)
+            </div>
         )
     }
 }

@@ -16,10 +16,14 @@ export const useFetchByName = () => {
 
     useEffect(() => {
 
-        setState({
-            data: data,
-            loading: false
-        });
+        setTimeout(() => {
+
+            setState({
+                data: data,
+                loading: false
+            });
+        }, 300);
+
     }, [data])
 
     return state;

@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 
 import { ComicListModel } from '../models/ComicListModel';
-import { useStateValue } from '../../providers/StateProvider';
+import { useLocalStorage } from '../../providers/useLocalStorage';
 import FavIcon from '../../assets/icons/favourites.png';
 
 export const ListFavouritesScreen = () => {
 
-    const [{ basket }] = useStateValue();
+    const [storage] = useLocalStorage('comics', []);
 
     return (
         <>
@@ -19,7 +19,7 @@ export const ListFavouritesScreen = () => {
                 </h3>
             </Link>
             <Row xs={1} md={1}>
-                {basket.map((per) => [
+                {storage.map((per) => [
                     <Col key={per.id}>
                         <ComicListModel
                             {...per}

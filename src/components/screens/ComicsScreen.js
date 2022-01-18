@@ -11,7 +11,7 @@ export const ComicsScreen = () => {
     const { data, loading } = useFetchById(id);
 
     return (loading ? <h2 className="text-center mt-5">Cargando...</h2> :
-        (<div className="container">
+        <div className="container">
             <h3 className="mt-3 text-center">
                 <img
                     className="screen__title"
@@ -37,6 +37,6 @@ export const ComicsScreen = () => {
                     ])}
                 </Row>
             </div>
-        </div>)
+        </div>
     )
 }
