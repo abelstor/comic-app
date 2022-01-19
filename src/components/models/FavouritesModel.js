@@ -1,21 +1,29 @@
+import { useEffect } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
 
 import { useStateValue } from '../../providers/StateProvider';
+import { useLocalStorage } from '../../providers/useLocalStorage';
 import DeleteIcon from '../../assets/icons/btn-delete.png';
 import LinkArrow from '../../assets/icons/link-arrow.png';
 import './models.css';
 
 export const FavouritesModel = ({ id, url, name, image, description }) => {
 
-    const [, dispatch] = useStateValue();
+    const [{ basket }, dispatch] = useStateValue();
 
-    const removeFovourite = () => {
+    const [storage, setStorage] = useLocalStorage('comics', basket);
+
+    const removeFavourite = () => {
 
         dispatch({
             type: 'REMOVE_FROM_FAVOURITES',
             id: id
         });
     }
+
+    useEffect(() => {
+        setStorage(basket);
+    }, [basket, storage, setStorage])
 
     const info = (!description ? 'Description not provided' : description).slice(0, 200);
 
@@ -34,7 +42,7 @@ export const FavouritesModel = ({ id, url, name, image, description }) => {
                     <Col>
                         <Card.Body>
                             <button
-                                onClick={removeFovourite}
+                                onClick={removeFavourite}
                                 className="favourite__delete_button">
                                 <img src={DeleteIcon} alt="delete" />
                             </button>

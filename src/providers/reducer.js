@@ -1,8 +1,6 @@
 
-export const initialState = {
-
-    basket: []
-}
+const comics = JSON.parse(localStorage.getItem('comics'));
+export const initialState = comics.length > 0 ? { basket: comics } : { basket: [] };
 
 export const getBasketTotal = (basket) => {
 

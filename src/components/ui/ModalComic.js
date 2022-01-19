@@ -70,9 +70,10 @@ export const ModalComic = ({ id, url, name, image, description }) => {
 
     const [{ basket }, dispatch] = useStateValue();
 
-    const [, setStorage] = useLocalStorage('comics', []);
+    const [storage, setStorage] = useLocalStorage('comics', basket);
 
     const addToFavourites = () => {
+
         dispatch({
             type: 'ADD_TO_FAVOURITES',
             item: {
@@ -85,9 +86,10 @@ export const ModalComic = ({ id, url, name, image, description }) => {
         });
         setModalShow(false);
     }
+
     useEffect(() => {
         setStorage(basket);
-    }, [basket, dispatch, setStorage])
+    }, [basket, dispatch, storage, setStorage])
 
 
     return (
