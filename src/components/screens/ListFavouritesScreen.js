@@ -10,7 +10,7 @@ import FavIcon from '../../assets/icons/favourites.png';
 export const ListFavouritesScreen = () => {
 
     const [{ basket }] = useStateValue();
-    const [, setStorage] = useLocalStorage('comics');
+    const [, setStorage] = useLocalStorage('comics', []);
 
     useEffect(() => {
 

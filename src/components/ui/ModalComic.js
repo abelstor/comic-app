@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card, Col, Image, Modal, Row } from 'react-bootstrap';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 import { useStateValue } from '../../providers/StateProvider';
 import { useLocalStorage } from '../../providers/useLocalStorage';
@@ -9,7 +11,7 @@ import btnFavouritesIcon from '../../assets/icons/btn-favourites-primary.png';
 
 import './ui.css';
 
-const ModalBody = ({ addToFavourites, ...props }) => {
+const ModalBody = ({ addToFavourites, buyComic, ...props }) => {
 
     return (
 
@@ -54,7 +56,7 @@ const ModalBody = ({ addToFavourites, ...props }) => {
                     <strong>ADD TO FAVOURITES</strong>
                 </button>
                 <button className="shopping__button"
-                    onClick={props.onHide}>
+                    onClick={buyComic}>
                     <img src={btnShoppingIcon} className="img__shopping" alt="btn-favourites" />
                     {' '}
                     <strong>BUY FOR $3.99</strong>
@@ -66,6 +68,8 @@ const ModalBody = ({ addToFavourites, ...props }) => {
 
 export const ModalComic = ({ id, url, name, image, description }) => {
 
+    const MySwal = withReactContent(Swal);
+
     const [modalShow, setModalShow] = useState(false);
 
     const [{ basket }, dispatch] = useStateValue();
@@ -73,6 +77,22 @@ export const ModalComic = ({ id, url, name, image, description }) => {
     const [storage, setStorage] = useLocalStorage('comics', basket);
 
     const addToFavourites = () => {
+
+        const index = basket.findIndex(
+            (basketItem) => basketItem.id === id
+        );
+
+        if (index >= 0) {
+
+            setModalShow(false);
+            MySwal.fire({
+                icon: 'error',
+                title: <p>Comic already added!</p>,
+                showConfirmButton: false,
+                timer: 1500
+            })
+            return;
+        }
 
         dispatch({
             type: 'ADD_TO_FAVOURITES',
@@ -84,6 +104,24 @@ export const ModalComic = ({ id, url, name, image, description }) => {
                 description: description,
             }
         });
+
+        MySwal.fire({
+            icon: 'success',
+            title: <p>Added successfully!</p>,
+            showConfirmButton: false,
+            timer: 1000
+        })
+        setModalShow(false);
+    }
+
+    const buyComic = () => {
+        MySwal.fire({
+            icon: 'info',
+            title: <p>Oops! We´re sorry</p>,
+            text: 'Coming soon!',
+            showConfirmButton: false,
+            timer: 1500
+        })
         setModalShow(false);
     }
 
@@ -106,6 +144,7 @@ export const ModalComic = ({ id, url, name, image, description }) => {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 addToFavourites={() => addToFavourites()}
+                buyComic={() => buyComic()}
             />
         </>
     )

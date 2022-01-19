@@ -107,14 +107,15 @@
 .shopping__button:hover {
   width: 50%;
   height: 100%;
-  color: red;
+  color: rgb(0, 255, 200);
   border-color: transparent;
-  background-color: rgb(168, 168, 168);
+  background-color: rgb(47, 33, 33);
 }
 
 .img__shopping {
   border-radius: 50%;
   background-color: transparent;
+  border-color: transparent;
   text-decoration: none;
 }
 .button__content {

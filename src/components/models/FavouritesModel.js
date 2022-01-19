@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Card, Row, Col, Image } from 'react-bootstrap';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 import { useStateValue } from '../../providers/StateProvider';
 import { useLocalStorage } from '../../providers/useLocalStorage';
@@ -9,9 +11,11 @@ import './models.css';
 
 export const FavouritesModel = ({ id, url, name, image, description }) => {
 
+    const MySwal = withReactContent(Swal);
+
     const [{ basket }, dispatch] = useStateValue();
 
-    const [storage, setStorage] = useLocalStorage('comics', basket);
+    const [storage, setStorage] = useLocalStorage('comics', []);
 
     const removeFavourite = () => {
 
@@ -19,6 +23,12 @@ export const FavouritesModel = ({ id, url, name, image, description }) => {
             type: 'REMOVE_FROM_FAVOURITES',
             id: id
         });
+        MySwal.fire({
+            icon: 'warning',
+            title: <p>Deleted!</p>,
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
 
     useEffect(() => {
