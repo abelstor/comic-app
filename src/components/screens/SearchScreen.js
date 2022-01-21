@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 
 import { CharacterModel } from '../models/CharacterModel';
 import { useFetchByName } from '../../helpers/useFetchByName';
 import CharIcon from '../../assets/icons/characters.png';
+import ArrowLeft from '../../assets/icons/btn_arrow_left.png';
+import ArrowRight from '../../assets/icons/btn_arrow_right.png';
 import './screens.css';
 
 export const SearchScreen = () => {
@@ -12,6 +15,35 @@ export const SearchScreen = () => {
     const myParam = urlParams.get('q');
 
     const { data, loading } = useFetchByName();
+
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const filterData = () => {
+        return data.slice(currentPage, currentPage + 10);
+    }
+
+    const nextPage = () => {
+        if (filterData().length < 10) {
+            return;
+        } else {
+            setCurrentPage(currentPage + 10);
+        }
+    }
+
+    const prevPage = () => {
+        if (currentPage > 0)
+            setCurrentPage(currentPage - 10);
+    }
+
+    const buttonLeft =
+        <button className="btn__content__page" onClick={prevPage}>
+            <img src={ArrowLeft} alt="ArrowLeft" className="btn__arrow mb-3" />
+        </button>
+
+    const buttonRight =
+        <button className="btn__content__page" onClick={nextPage}>
+            <img src={ArrowRight} alt="ArrowRight" className="btn__arrow mb-3" />
+        </button>
 
     if (data.length > 0) {
 
@@ -26,7 +58,7 @@ export const SearchScreen = () => {
                 </Link>
                 <div>
                     <Row xs={1} md={2} className="g-0">
-                        {data.map((per) => [
+                        {filterData().map((per) => [
                             <Col key={per.id}>
                                 <CharacterModel
                                     name={per.name}
@@ -38,6 +70,11 @@ export const SearchScreen = () => {
                             </Col>
                         ])}
                     </Row>
+                </div>
+                <div className="pagination justify-content-center" fixed="bottom">
+                    {
+                        (currentPage === 0) ? buttonRight : <div>{buttonLeft} &nbsp; {buttonRight}</div>
+                    }
                 </div>
             </div >
         )

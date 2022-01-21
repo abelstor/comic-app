@@ -7,6 +7,7 @@ import { ResultSearch } from '../components/screens/ResultSearch';
 import { ComicsScreen } from '../components/screens/ComicsScreen';
 import { CharactersScreen } from '../components/screens/CharactersScreen';
 import { FavouritesScreen } from '../components/screens/FavouritesScreen';
+import { Footer } from '../components/ui/Footer';
 
 export const AppRouter = () => {
 
@@ -21,6 +22,7 @@ export const AppRouter = () => {
                 <Route path="characters" element={<CharactersScreen />} />
                 <Route path="favourites" element={<FavouritesScreen />} />
             </Routes>
+            <Footer />
         </>
     )
 }

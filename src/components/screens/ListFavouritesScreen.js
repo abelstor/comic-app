@@ -21,7 +21,7 @@ export const ListFavouritesScreen = () => {
     }, [basket, setStorage])
 
     return (
-        <>
+        <div style={{ marginBottom: 70 }}>
             <Link to={'favourites'} className="text__link">
                 <h3 className="mt-4 text-center">
                     <img src={FavIcon} alt="char" />
@@ -38,6 +38,6 @@ export const ListFavouritesScreen = () => {
                     </Col>
                 ])}
             </Row>
-        </>
+        </div>
     )
 }

@@ -107,7 +107,8 @@
 .shopping__button:hover {
   width: 50%;
   height: 100%;
-  color: rgb(0, 255, 200);
+  /* color: rgb(0, 255, 200); */
+  color: white;
   border-color: transparent;
   background-color: rgb(47, 33, 33);
 }
@@ -120,4 +121,8 @@
 }
 .button__content {
   height: 55px;
+}
+
+.text__footer {
+  font-size: 14px;
 }

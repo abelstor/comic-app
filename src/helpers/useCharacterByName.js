@@ -6,7 +6,7 @@ const apiKey = process.env.REACT_APP_APIKEY;
 export const useCharacterByName = (name) => {
     const [characterByName, setCharacterByName] = useState([]);
     useEffect(() => {
-        fetch(`${urlBase}?nameStartsWith=${name}&${apiKey}`)
+        fetch(`${urlBase}?nameStartsWith=${name}&limit=100&${apiKey}`)
             .then(resp => resp.json())
             .then(({ data }) => {
                 setCharacterByName(data.results)

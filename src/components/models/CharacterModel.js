@@ -7,6 +7,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
 
     const upperName = name.toUpperCase();
     const info = (!description ? 'Description not provided' : description).slice(0, 120);
+    const relatedItems = items.slice(0, 4);
 
     return (
         <div className="character__content animate__animated animate__fadeIn">
@@ -36,7 +37,7 @@ export const CharacterModel = ({ image, description, name, id, items }) => {
                 <Card.Title className="character__title">Related comics</Card.Title>
                 <Col className="character__text__item">
                     <Card.Text >
-                        {items.map((ite) => [
+                        {relatedItems.map((ite) => [
                             <li key={ite}>
                                 {ite}
                             </li>

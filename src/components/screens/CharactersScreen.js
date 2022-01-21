@@ -8,7 +8,7 @@ import './screens.css';
 export const CharactersScreen = () => {
 
     return (
-        <div className="container">
+        <div className="container" style={{ marginBottom: 200 }}>
             <h2 className='mt-3'>
                 <img
                     className="screen__title"

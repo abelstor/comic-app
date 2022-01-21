@@ -16,3 +16,18 @@
   text-decoration: none;
   color: black;
 }
+
+.btn__arrow {
+  width: 35px;
+  position: relative;
+}
+
+.pagination__button {
+  margin-top: 1px;
+}
+
+.btn__content__page {
+  background-color: transparent;
+  border-color: transparent;
+  margin-bottom: 80px;
+}

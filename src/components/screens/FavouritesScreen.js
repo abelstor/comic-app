@@ -20,7 +20,7 @@ export const FavouritesScreen = () => {
     }, [basket, setStorage])
 
     return (
-        <div className="container">
+        <div className="container" style={{ marginBottom: 200 }}>
             <h3 className="mt-3 text-center mb-4">
                 <img className="screen__title"
                     src={FavIcon} alt="char" />

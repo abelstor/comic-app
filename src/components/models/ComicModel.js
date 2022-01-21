@@ -12,7 +12,7 @@ export const ComicModel = ({ id, url, name, image, description }) => {
     const urlComic = source.props.children;
 
     return (
-        <div className="comic__content animate__animated animate__fadeInRight">
+        <div className="comic__content animate__animated animate__fadeIn">
             <Card style={{ width: "16rem" }} className="comic__card">
                 <Row>
                     <Col>

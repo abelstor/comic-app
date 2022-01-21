@@ -117,7 +117,7 @@ export const ModalComic = ({ id, url, name, image, description }) => {
     const buyComic = () => {
         MySwal.fire({
             icon: 'info',
-            title: <p>Oops! We´re sorry</p>,
+            title: <p>Oops! We're sorry</p>,
             text: 'Coming soon!',
             showConfirmButton: false,
             timer: 1500
