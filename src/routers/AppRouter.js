@@ -15,7 +15,7 @@ export const AppRouter = () => {
         <>
             <HeaderUi />
             <Routes>
-                <Route index element={<HomeScreen />} />
+                <Route path="/" element={<HomeScreen />} />
                 <Route path="search" element={<SearchScreen />} />
                 <Route path="result" element={<ResultSearch />} />
                 <Route path="comics/:id" element={<ComicsScreen />} />

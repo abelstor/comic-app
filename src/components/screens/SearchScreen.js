@@ -4,15 +4,13 @@ import { Col, Row } from 'react-bootstrap';
 
 import { CharacterModel } from '../models/CharacterModel';
 import { useFetchByName } from '../../helpers/useFetchByName';
+import { Loading } from '../ui/Loading';
 import CharIcon from '../../assets/icons/characters.png';
 import ArrowLeft from '../../assets/icons/btn_arrow_left.png';
 import ArrowRight from '../../assets/icons/btn_arrow_right.png';
 import './screens.css';
 
 export const SearchScreen = () => {
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('q');
 
     const { data, loading } = useFetchByName();
 
@@ -47,7 +45,7 @@ export const SearchScreen = () => {
 
     if (data.length > 0) {
 
-        return (loading ? <h2 className="text-center mt-5">Cargando...</h2> :
+        return (loading ? <Loading /> :
             <div className="container animate__animated animate__fadeInLeft">
                 <Link to={'/'} className="text__link">
                     <h3 className="mt-3 text-center">
@@ -71,7 +69,7 @@ export const SearchScreen = () => {
                         ])}
                     </Row>
                 </div>
-                <div className="pagination justify-content-center" fixed="bottom">
+                <div className="pagination justify-content-center">
                     {
                         (currentPage === 0) ? buttonRight : <div>{buttonLeft} &nbsp; {buttonRight}</div>
                     }
@@ -80,9 +78,9 @@ export const SearchScreen = () => {
         )
     } else {
 
-        return (loading ? <h2 className="text-center mt-5">Cargando...</h2> :
+        return (loading ? <Loading /> :
             <div className="container animate__animated animate__fadeInLeft p-5">
-                <h3>No matches found for... ' {myParam} '.</h3>
+                <h3>No matches found...</h3>
             </div>
         )
     }
